@@ -162,6 +162,11 @@ public class SaisieComptable extends javax.swing.JFrame {
 
         sc_combo_scompte.setEditable(true);
         sc_combo_scompte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sous-compte" }));
+        sc_combo_scompte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sc_combo_scompteMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -330,8 +335,13 @@ public class SaisieComptable extends javax.swing.JFrame {
 
     private void sc_combo_compteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sc_combo_compteItemStateChanged
         // TODO add your handling code here:
-        comboBoxCC(sc_combo_compte);
+        comboBoxCC(sc_combo_scompte);
     }//GEN-LAST:event_sc_combo_compteItemStateChanged
+
+    private void sc_combo_scompteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_combo_scompteMouseClicked
+        // TODO add your handling code here:
+        comboBoxCC(sc_combo_compte);
+    }//GEN-LAST:event_sc_combo_scompteMouseClicked
     /*+sc_combo_scompte.getSelectedItem().toString()+*/
     /**
      * @param args the command line arguments
@@ -462,7 +472,7 @@ public class SaisieComptable extends javax.swing.JFrame {
      private void comboBoxCC(JComboBox jc)
     {       
         jc.removeAllItems();
-        String req="SELECT LIBELLES_COMPTES FROM SOUS_COMPTE,COMPTE WHERE SOUS_COMPTE.CODECOMPTE=COMPTE.CODECOMPTE AND SOUS_COMPTE.CODECOMPTE="+sc_combo_compte.getSelectedIndex();
+        String req="SELECT LIBELLES_COMPTE FROM SOUS_COMPTE,COMPTE WHERE SOUS_COMPTE.CODECOMPTE=COMPTE.CODECOMPTE AND SOUS_COMPTE.CODECOMPTE="+sc_combo_compte.getSelectedIndex();
         try {
             ResultSet resultSet=bd.getData(req);
             while(resultSet.next())
