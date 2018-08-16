@@ -315,14 +315,14 @@ public class SaisieComptable extends javax.swing.JFrame {
 
     private void sc_modifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_modifierMouseClicked
         // TODO add your handling code here:
-       /* bd.insertData("UPDATE SAISIE_COMPTABLE SET \"NUMFACT\" = '"+sc_num_fact.getText()+"', \"LIBSAISIE\" = '"+sc_lib_saisi.getText()+"', "
-                + "\"COUT\" =" +sc_cout.getText()+", \"DATES\" = '"+sc_date.getText()+"', \"TYPE_TRANSAC\" = '"+sc_typ_trans.getSelectedItem().toString()+"',"
-                + " \"AMORTISSEMENT\" = '"+sc_amortiss.getSelectedItem().toString()+"',"
-                + " \"DOTATIONS_AMORT\" = "+sc_dotation.getText()+", \"SOCIETE\" = '"+sc_societe.getText()+"', "
-                + "\"S_COMPTE\" = "+sc_combo_scompte.getSelectedItem()+" WHERE NUMSAISIE ="+sc_table.getValueAt(sc_table.getSelectedRow(), 0)+";\n" +"");*/
-       JOptionPane.showMessageDialog(null,""+ sc_table.getValueAt(sc_table.getSelectedRow(), 0));
+        
+       bd.insertData("UPDATE SAISIE_COMPTABLE SET NUMFACT = '"+sc_num_fact.getText()+"', LIBSAISIE = '"+sc_lib_saisi.getText()+"', "
+                + "COUT =" +sc_cout.getText()+", DATES = '"+sc_date.getText()+"', TYPE_TRANSAC = '"+sc_typ_trans.getSelectedItem().toString()+"',"
+                + " AMORTISSEMENT = '"+sc_amortiss.getSelectedItem().toString()+"',"
+                + " DOTATIONS_AMORT = "+sc_dotation.getText()+", SOCIETE = '"+sc_societe.getText()+"', "
+                + "S_COMPTE =21  WHERE NUMSAISIE ="+sc_table.getValueAt(sc_table.getSelectedRow(), 0));
     }//GEN-LAST:event_sc_modifierMouseClicked
-
+    /*+sc_combo_scompte.getSelectedItem().toString()+*/
     /**
      * @param args the command line arguments
      */
