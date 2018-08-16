@@ -125,6 +125,11 @@ public class SaisieComptable extends javax.swing.JFrame {
 
         sc_combo_compte.setEditable(true);
         sc_combo_compte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compte" }));
+        sc_combo_compte.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                sc_combo_compteItemStateChanged(evt);
+            }
+        });
         sc_combo_compte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sc_combo_compteMouseClicked(evt);
@@ -322,6 +327,11 @@ public class SaisieComptable extends javax.swing.JFrame {
                 + " DOTATIONS_AMORT = "+sc_dotation.getText()+", SOCIETE = '"+sc_societe.getText()+"', "
                 + "S_COMPTE =21  WHERE NUMSAISIE ="+sc_table.getValueAt(sc_table.getSelectedRow(), 0));
     }//GEN-LAST:event_sc_modifierMouseClicked
+
+    private void sc_combo_compteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sc_combo_compteItemStateChanged
+        // TODO add your handling code here:
+        comboBoxCC(sc_combo_compte);
+    }//GEN-LAST:event_sc_combo_compteItemStateChanged
     /*+sc_combo_scompte.getSelectedItem().toString()+*/
     /**
      * @param args the command line arguments
@@ -438,6 +448,21 @@ public class SaisieComptable extends javax.swing.JFrame {
     {       
         jc.removeAllItems();
         String req="SELECT LIBCOMPTE FROM COMPTE,CLASSE WHERE COMPTE.CODECLASSE=CLASSE.CODECLASSE AND COMPTE.CODECLASSE="+sc_combo_class.getSelectedIndex();
+        try {
+            ResultSet resultSet=bd.getData(req);
+            while(resultSet.next())
+            {            
+                jc.addItem(resultSet.getString(1));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(SaisieComptable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+     private void comboBoxCC(JComboBox jc)
+    {       
+        jc.removeAllItems();
+        String req="SELECT LIBELLES_COMPTES FROM SOUS_COMPTE,COMPTE WHERE SOUS_COMPTE.CODECOMPTE=COMPTE.CODECOMPTE AND SOUS_COMPTE.CODECOMPTE="+sc_combo_compte.getSelectedIndex();
         try {
             ResultSet resultSet=bd.getData(req);
             while(resultSet.next())
