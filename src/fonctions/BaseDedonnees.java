@@ -18,33 +18,33 @@ public class BaseDedonnees {
 
     public BaseDedonnees() {
     }
-    String url="jdbc:sqlite:dba.db";
-    String pilote="org.sqlite.JDBC";
-    Connection getConnection() throws Exception
-    {
+    String url = "jdbc:sqlite:dba.db";
+    String pilote = "org.sqlite.JDBC";
+
+    Connection getConnection() throws Exception {
         Class.forName(pilote);
-        Connection connection=DriverManager.getConnection(url);
+        Connection connection = DriverManager.getConnection(url);
         connection.setAutoCommit(true);
         return connection;
     }
-    public void insertData(String req)
-    {
+
+    public void insertData(String req) {
         try {
-            Connection connection=getConnection();
-            java.sql.Statement statement=connection.createStatement();
+            Connection connection = getConnection();
+            java.sql.Statement statement = connection.createStatement();
             statement.executeUpdate(req);
             statement.close();
         } catch (Exception e) {
             System.out.println(e);
         }
-    
+
     }
     public java.sql.Statement statement;
-    public ResultSet getData (String req) throws Exception
-    {
-        Connection connection=getConnection();
-        statement=connection.createStatement();
-        ResultSet resultSet=statement.executeQuery(req);
+
+    public ResultSet getData(String req) throws Exception {
+        Connection connection = getConnection();
+        statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(req);
         return resultSet;
     }
 }

@@ -35,7 +35,9 @@ public class SaisieComptable extends javax.swing.JFrame {
     public SaisieComptable() {
         initComponents();
         tableload(sc_table);
-        comboBox(sc_combo_class);
+        comboBox(sc_combo_class,"SELECT LIBCLASSE FROM CLASSE");
+        //comboBox(sc_combo_compte, "SELECT LIBCOMPTE FROM COMPTE");
+        //comboBox(sc_combo_compte, "SELECT LIBCOMPTE FROM COMPTE,CLASSE WHERE COMPTE.CODECLASSE=CLASSE.CODECLASSE AND COMPTE.CODECLASSE=3"/*+sc_combo_class.getSelectedIndex()*/);
        
     }
 
@@ -61,8 +63,7 @@ public class SaisieComptable extends javax.swing.JFrame {
         sc_amortiss = new javax.swing.JComboBox<>();
         sc_dotation = new javax.swing.JTextField();
         sc_lib_saisi = new javax.swing.JTextField();
-        sc_compte = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        sc_combo_compte = new javax.swing.JComboBox<>();
         sc_combo_class = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -72,6 +73,7 @@ public class SaisieComptable extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        sc_combo_scompte = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Saisie comptable");
@@ -87,6 +89,11 @@ public class SaisieComptable extends javax.swing.JFrame {
                 "Num.", "Date", "Num. Facture", "Société", "Coût", "Type de transaction", "Amortissable", "Dotation", "Libellé de la saisie", "Compte"
             }
         ));
+        sc_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                sc_tableMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(sc_table);
 
         sc_ajouter.setText("Ajouter");
@@ -97,14 +104,40 @@ public class SaisieComptable extends javax.swing.JFrame {
         });
 
         sc_modifier.setText("Modifier");
+        sc_modifier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sc_modifierMouseClicked(evt);
+            }
+        });
 
         sc_supprimer.setText("Supprimer");
+        sc_supprimer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sc_supprimerMouseClicked(evt);
+            }
+        });
 
         sc_typ_trans.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sortie de fonds", "Entrée de fonds" }));
 
         sc_amortiss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sc_dotation.setText("0");
+
+        sc_combo_compte.setEditable(true);
+        sc_combo_compte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compte" }));
+        sc_combo_compte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sc_combo_compteMouseClicked(evt);
+            }
+        });
+
+        sc_combo_class.setEditable(true);
+        sc_combo_class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Classe" }));
+        sc_combo_class.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                sc_combo_classItemStateChanged(evt);
+            }
+        });
 
         jLabel1.setText("Amortissable");
 
@@ -121,6 +154,9 @@ public class SaisieComptable extends javax.swing.JFrame {
         jLabel7.setText("Dotation");
 
         jLabel8.setText("Libellé de la saisie");
+
+        sc_combo_scompte.setEditable(true);
+        sc_combo_scompte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sous-compte" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,17 +196,17 @@ public class SaisieComptable extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(sc_lib_saisi, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(sc_compte, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(88, 88, 88)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(sc_combo_compte, 0, 252, Short.MAX_VALUE)
                                     .addComponent(sc_combo_class, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(sc_lib_saisi, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sc_combo_scompte, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addComponent(jScrollPane1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -184,16 +220,14 @@ public class SaisieComptable extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(62, Short.MAX_VALUE)
                 .addComponent(sc_combo_class, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(sc_date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(sc_compte, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(sc_date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel8)
@@ -222,7 +256,9 @@ public class SaisieComptable extends javax.swing.JFrame {
                                 .addComponent(sc_num_fact, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(sc_combo_compte, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(sc_combo_scompte, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -242,17 +278,51 @@ public class SaisieComptable extends javax.swing.JFrame {
     private void sc_ajouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_ajouterMouseClicked
         // TODO add your handling code here:
         bd.insertData("INSERT INTO saisie_comptable (NUMFACT, LIBSAISIE, COUT, DATES, TYPE_TRANSAC, AMORTISSEMENT, DOTATIONS_AMORT, SOCIETE, S_COMPTE, ID_USER) \n" +
-"VALUES ('"+sc_num_fact.getText()+"', '"+sc_lib_saisi.getText()+"', "+sc_cout.getText()+", '"+sc_date.getText()+"', '"+sc_typ_trans.getSelectedItem().toString()+"', '"+sc_amortiss.getSelectedItem().toString()+"', "+sc_dotation.getText()+", '"+sc_societe.getText()+"', "+sc_compte.getText()+", 1);\n" +
-"");
+        "VALUES ('"+sc_num_fact.getText()+"', '"+sc_lib_saisi.getText()+"', "+sc_cout.getText()+", '"+sc_date.getText()+"', '"+sc_typ_trans.getSelectedItem().toString()+"', '"+sc_amortiss.getSelectedItem().toString()+"', "+sc_dotation.getText()+", '"+sc_societe.getText()+"', "+sc_combo_scompte.getSelectedItem()+", 1);\n" +
+        "");
         System.out.println("insertion réussi !!"+sc_lib_saisi.getText());
         
-      cleanTableau();
-      tableload(sc_table);
-      
-        
+        cleanTableau();
+        tableload(sc_table);
+           
         
     }//GEN-LAST:event_sc_ajouterMouseClicked
 
+    private void sc_combo_classItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sc_combo_classItemStateChanged
+        // TODO add your handling code here:
+        comboBoxC(sc_combo_compte);
+    }//GEN-LAST:event_sc_combo_classItemStateChanged
+
+    private void sc_supprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_supprimerMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_sc_supprimerMouseClicked
+
+    private void sc_combo_compteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_combo_compteMouseClicked
+        
+    }//GEN-LAST:event_sc_combo_compteMouseClicked
+
+    private void sc_tableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_tableMousePressed
+        // TODO add your handling code here:
+        //JOptionPane.showMessageDialog(null, String.valueOf(sc_table.getValueAt(sc_table.getSelectedRow(), 2)));
+        sc_date.setText(String.valueOf(sc_table.getValueAt(sc_table.getSelectedRow(), 1)));
+        sc_num_fact.setText(String.valueOf(sc_table.getValueAt(sc_table.getSelectedRow(), 2)));
+        sc_societe.setText(String.valueOf(sc_table.getValueAt(sc_table.getSelectedRow(), 3)));
+        sc_cout.setText(String.valueOf(sc_table.getValueAt(sc_table.getSelectedRow(), 4)));
+        sc_dotation.setText(String.valueOf(sc_table.getValueAt(sc_table.getSelectedRow(), 7)));
+        sc_lib_saisi.setText(String.valueOf(sc_table.getValueAt(sc_table.getSelectedRow(), 8)));
+    }//GEN-LAST:event_sc_tableMousePressed
+
+    private void sc_modifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_modifierMouseClicked
+        // TODO add your handling code here:
+        
+       bd.insertData("UPDATE SAISIE_COMPTABLE SET NUMFACT = '"+sc_num_fact.getText()+"', LIBSAISIE = '"+sc_lib_saisi.getText()+"', "
+                + "COUT =" +sc_cout.getText()+", DATES = '"+sc_date.getText()+"', TYPE_TRANSAC = '"+sc_typ_trans.getSelectedItem().toString()+"',"
+                + " AMORTISSEMENT = '"+sc_amortiss.getSelectedItem().toString()+"',"
+                + " DOTATIONS_AMORT = "+sc_dotation.getText()+", SOCIETE = '"+sc_societe.getText()+"', "
+                + "S_COMPTE =21  WHERE NUMSAISIE ="+sc_table.getValueAt(sc_table.getSelectedRow(), 0));
+    }//GEN-LAST:event_sc_modifierMouseClicked
+    /*+sc_combo_scompte.getSelectedItem().toString()+*/
     /**
      * @param args the command line arguments
      */
@@ -289,7 +359,6 @@ public class SaisieComptable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -302,7 +371,8 @@ public class SaisieComptable extends javax.swing.JFrame {
     private javax.swing.JButton sc_ajouter;
     private javax.swing.JComboBox<String> sc_amortiss;
     private javax.swing.JComboBox<String> sc_combo_class;
-    private javax.swing.JTextField sc_compte;
+    private javax.swing.JComboBox<String> sc_combo_compte;
+    private javax.swing.JComboBox<String> sc_combo_scompte;
     private javax.swing.JTextField sc_cout;
     private javax.swing.JTextField sc_date;
     private javax.swing.JTextField sc_dotation;
@@ -316,7 +386,7 @@ public class SaisieComptable extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cleanTableau() {
-        sc_compte.setText("");
+        
         sc_cout.setText("");
         sc_date.setText("");
         sc_dotation.setText("");
@@ -350,12 +420,26 @@ public class SaisieComptable extends javax.swing.JFrame {
             Logger.getLogger(SaisieComptable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void comboBox(JComboBox jc)
+    private void comboBox(JComboBox jc, String req)
     {       
-             
-        
         try {
-            ResultSet resultSet=bd.getData("SELECT LIBCLASSE FROM CLASSE");
+            ResultSet resultSet=bd.getData(req);
+            while(resultSet.next())
+            {            
+                jc.addItem(resultSet.getString(1));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(SaisieComptable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
+     private void comboBoxC(JComboBox jc)
+    {       
+        jc.removeAllItems();
+        String req="SELECT LIBCOMPTE FROM COMPTE,CLASSE WHERE COMPTE.CODECLASSE=CLASSE.CODECLASSE AND COMPTE.CODECLASSE="+sc_combo_class.getSelectedIndex();
+        try {
+            ResultSet resultSet=bd.getData(req);
             while(resultSet.next())
             {            
                 jc.addItem(resultSet.getString(1));
