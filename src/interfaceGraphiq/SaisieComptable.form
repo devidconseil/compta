@@ -78,7 +78,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="sc_lib_saisi" min="-2" pref="142" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="sc_combo_scompte" max="32767" attributes="0"/>
+                              <Component id="sc_combo_sous_compte" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -147,7 +147,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="sc_combo_compte" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="sc_combo_scompte" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="sc_combo_sous_compte" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -330,6 +330,7 @@
       </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="sc_combo_compteItemStateChanged"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sc_combo_compteFocusGained"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sc_combo_compteMouseClicked"/>
       </Events>
       <AuxValues>
@@ -392,7 +393,7 @@
         <Property name="text" type="java.lang.String" value="Libell&#xe9; de la saisie"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="sc_combo_scompte">
+    <Component class="javax.swing.JComboBox" name="sc_combo_sous_compte">
       <Properties>
         <Property name="editable" type="boolean" value="true"/>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -402,7 +403,8 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sc_combo_scompteMouseClicked"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sc_combo_sous_compteFocusGained"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sc_combo_sous_compteMouseClicked"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
