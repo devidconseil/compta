@@ -27,7 +27,6 @@ public class BaseDedonnees {
         connection.setAutoCommit(true);
         return connection;
     }
-
     public void insertData(String req) {
         try {
             Connection connection = getConnection();
