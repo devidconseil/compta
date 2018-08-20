@@ -22,9 +22,7 @@ public class BilanComptable extends javax.swing.JFrame {
     public BilanComptable() {
         initComponents();
         
-        JScrollPane sp = new JScrollPane();
-      this.add(sp);
-      //sp.add(g);
+     
      
     }
 
@@ -234,8 +232,6 @@ public class BilanComptable extends javax.swing.JFrame {
         jLabel330 = new javax.swing.JLabel();
         jLabel331 = new javax.swing.JLabel();
         jLabel332 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jLabel51 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
@@ -250,6 +246,16 @@ public class BilanComptable extends javax.swing.JFrame {
         jLabel115 = new javax.swing.JLabel();
         jLabel118 = new javax.swing.JLabel();
         jLabel313 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel341 = new javax.swing.JLabel();
+        jLabel342 = new javax.swing.JLabel();
+        jLabel343 = new javax.swing.JLabel();
+        jLabel344 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel336 = new javax.swing.JLabel();
+        jLabel337 = new javax.swing.JLabel();
+        jLabel338 = new javax.swing.JLabel();
+        jLabel339 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bilan comptable");
@@ -1060,7 +1066,7 @@ public class BilanComptable extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(700, 760));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jLabel4.setText("Achats");
+        jLabel4.setText("PASSIF");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel6.setText("Capital");
@@ -1227,38 +1233,14 @@ public class BilanComptable extends javax.swing.JFrame {
 
         jLabel332.setText("0000000");
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
         jLabel51.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel51.setText("HI");
+        jLabel51.setText("HS");
 
         jLabel59.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel59.setText("CAPITAUX PROPRE (I)");
+        jLabel59.setText("TOTAL PASSIF CIRCULANT (III)");
 
-        jLabel62.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel62.setText("00000000");
 
-        jLabel63.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel63.setText("00000000");
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -1268,13 +1250,13 @@ public class BilanComptable extends javax.swing.JFrame {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel51)
-                .addGap(51, 51, 51)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel59)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel62)
-                .addGap(28, 28, 28)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel63)
-                .addGap(25, 25, 25))
+                .addGap(24, 24, 24))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1285,7 +1267,7 @@ public class BilanComptable extends javax.swing.JFrame {
                     .addComponent(jLabel59)
                     .addComponent(jLabel62)
                     .addComponent(jLabel63))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jLabel64.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -1295,21 +1277,17 @@ public class BilanComptable extends javax.swing.JFrame {
         jLabel68.setText("TOTAL CAPITAUX STABLES (I+II)");
 
         jLabel87.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel87.setText("HK");
+        jLabel87.setText("HM");
 
         jLabel109.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel109.setText("HK");
+        jLabel109.setText("HN");
 
-        jLabel112.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel112.setText("0000000");
+        jLabel112.setText("00000000");
 
-        jLabel115.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel115.setText("0000000");
+        jLabel115.setText("00000000");
 
-        jLabel118.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel118.setText("0000000");
 
-        jLabel313.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel313.setText("0000000");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1317,28 +1295,28 @@ public class BilanComptable extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel87)
                     .addComponent(jLabel109))
-                .addGap(53, 53, 53)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel64)
                     .addComponent(jLabel68))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel115)
-                    .addComponent(jLabel112))
-                .addGap(40, 40, 40)
+                    .addComponent(jLabel112)
+                    .addComponent(jLabel115))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel313)
                     .addComponent(jLabel118))
-                .addContainerGap())
+                .addGap(27, 27, 27))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(17, 17, 17)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel118)
@@ -1354,6 +1332,82 @@ public class BilanComptable extends javax.swing.JFrame {
                             .addComponent(jLabel68)
                             .addComponent(jLabel109)
                             .addComponent(jLabel115))))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        jLabel341.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel341.setText("HI");
+
+        jLabel342.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel342.setText("CAPITAUX PROPRE (I)");
+
+        jLabel343.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel343.setText("00000000");
+
+        jLabel344.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel344.setText("00000000");
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel341)
+                .addGap(59, 59, 59)
+                .addComponent(jLabel342)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
+                .addComponent(jLabel343)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel344)
+                .addGap(25, 25, 25))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel341)
+                    .addComponent(jLabel342)
+                    .addComponent(jLabel343)
+                    .addComponent(jLabel344))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        jLabel336.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel336.setText("HV");
+
+        jLabel337.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel337.setText("TOTAL TRESORERIE-PASSIF (IV)");
+
+        jLabel338.setText("00000000");
+
+        jLabel339.setText("00000000");
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel336)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel337)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel338)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel339)
+                .addGap(18, 18, 18))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel336)
+                    .addComponent(jLabel337)
+                    .addComponent(jLabel338)
+                    .addComponent(jLabel339))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -1466,24 +1520,21 @@ public class BilanComptable extends javax.swing.JFrame {
                                         .addComponent(jLabel315)))
                                 .addGap(69, 69, 69))))))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(133, 133, 133)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel89)
-                                    .addComponent(jLabel318)
-                                    .addComponent(jLabel71)
-                                    .addComponent(jLabel330)
-                                    .addComponent(jLabel323)
-                                    .addComponent(jLabel321))
-                                .addGap(437, 437, 437))
-                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel89)
+                            .addComponent(jLabel318)
+                            .addComponent(jLabel71)
+                            .addComponent(jLabel330)
+                            .addComponent(jLabel323)
+                            .addComponent(jLabel321))
+                        .addGap(468, 468, 468))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1539,9 +1590,9 @@ public class BilanComptable extends javax.swing.JFrame {
                     .addComponent(jLabel49)
                     .addComponent(jLabel108)
                     .addComponent(jLabel114))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(23, 23, 23)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel50)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1555,7 +1606,7 @@ public class BilanComptable extends javax.swing.JFrame {
                     .addComponent(jLabel56)
                     .addComponent(jLabel111)
                     .addComponent(jLabel117))
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel58)
@@ -1579,9 +1630,9 @@ public class BilanComptable extends javax.swing.JFrame {
                     .addComponent(jLabel93)
                     .addComponent(jLabel314)
                     .addComponent(jLabel315))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel71)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1589,8 +1640,8 @@ public class BilanComptable extends javax.swing.JFrame {
                     .addComponent(jLabel330)
                     .addComponent(jLabel329)
                     .addComponent(jLabel328))
-                .addGap(11, 11, 11)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel323)
@@ -1602,7 +1653,7 @@ public class BilanComptable extends javax.swing.JFrame {
                     .addComponent(jLabel321)
                     .addComponent(jLabel324)
                     .addComponent(jLabel332))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1610,20 +1661,20 @@ public class BilanComptable extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addContainerGap(69, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addGap(55, 55, 55)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 822, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
@@ -1635,7 +1686,7 @@ public class BilanComptable extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         
-    
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1890,7 +1941,9 @@ public class BilanComptable extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel318;
     private javax.swing.JLabel jLabel319;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel320;
     private javax.swing.JLabel jLabel321;
+    private javax.swing.JLabel jLabel322;
     private javax.swing.JLabel jLabel323;
     private javax.swing.JLabel jLabel324;
     private javax.swing.JLabel jLabel325;
@@ -1902,7 +1955,18 @@ public class BilanComptable extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel330;
     private javax.swing.JLabel jLabel331;
     private javax.swing.JLabel jLabel332;
+    private javax.swing.JLabel jLabel333;
+    private javax.swing.JLabel jLabel334;
+    private javax.swing.JLabel jLabel335;
+    private javax.swing.JLabel jLabel336;
+    private javax.swing.JLabel jLabel337;
+    private javax.swing.JLabel jLabel338;
+    private javax.swing.JLabel jLabel339;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel341;
+    private javax.swing.JLabel jLabel342;
+    private javax.swing.JLabel jLabel343;
+    private javax.swing.JLabel jLabel344;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -1976,9 +2040,10 @@ public class BilanComptable extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
