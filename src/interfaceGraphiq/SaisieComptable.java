@@ -37,7 +37,7 @@ public class SaisieComptable extends javax.swing.JFrame {
     public SaisieComptable() {
         initComponents();
         tableload(sc_table);
-        comboBox(sc_combo_class,"SELECT LIBCLASSE FROM CLASSE");
+        //comboBox(sc_combo_class,"SELECT LIBCLASSE FROM CLASSE");
         //comboBoxxCC(sc_combo_sous_compte);
         //comboBox(sc_combo_compte, "SELECT LIBCOMPTE FROM COMPTE");
         //comboBox(sc_combo_compte, "SELECT LIBCOMPTE FROM COMPTE,CLASSE WHERE COMPTE.CODECLASSE=CLASSE.CODECLASSE AND COMPTE.CODECLASSE=3"/*+sc_combo_class.getSelectedIndex()*/);
@@ -74,6 +74,7 @@ public class SaisieComptable extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         sc_combo_sous_compte = new javax.swing.JComboBox<>();
         sc_val_compt = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Saisie comptable");
@@ -165,7 +166,7 @@ public class SaisieComptable extends javax.swing.JFrame {
         });
 
         sc_combo_class.setEditable(true);
-        sc_combo_class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Classe" }));
+        sc_combo_class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Classe", "Classe 1", "Classe 2", "Classe 3", "Classe 4", "Classe 5", "Classe 6", "Classe 7", "Classe 8", "Classe 9" }));
         sc_combo_class.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 sc_combo_classItemStateChanged(evt);
@@ -207,6 +208,13 @@ public class SaisieComptable extends javax.swing.JFrame {
         });
 
         sc_val_compt.setName("sc_val_compte"); // NOI18N
+
+        jButton1.setText("Quitter");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -263,7 +271,8 @@ public class SaisieComptable extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(sc_ajouter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sc_modifier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sc_supprimer, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                    .addComponent(sc_supprimer, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -315,7 +324,9 @@ public class SaisieComptable extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(sc_modifier)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sc_supprimer))
+                        .addComponent(sc_supprimer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55))
         );
@@ -334,19 +345,19 @@ public class SaisieComptable extends javax.swing.JFrame {
     private void sc_combo_classItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sc_combo_classItemStateChanged
         // TODO add your handling code here:
         comboBoxC(sc_combo_compte);
-        comboBoxCC(sc_combo_sous_compte,sc_combo_compte.getSelectedItem().toString());
+        //comboBoxCC(sc_combo_sous_compte,sc_combo_compte.getSelectedItem().toString());
        
       
     }//GEN-LAST:event_sc_combo_classItemStateChanged
 
     private void sc_supprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_supprimerMouseClicked
         // TODO add your handling code here:
-        this.dispose();   
+        //this.dispose();   
     }//GEN-LAST:event_sc_supprimerMouseClicked
 
     private void sc_combo_compteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_combo_compteMouseClicked
              JOptionPane.showMessageDialog(null, "bonjour");
-             comboBoxCC(sc_combo_sous_compte,sc_combo_compte.getSelectedItem().toString());
+             //comboBoxCC(sc_combo_sous_compte,sc_combo_compte.getSelectedItem().toString());
     }//GEN-LAST:event_sc_combo_compteMouseClicked
 
     private void sc_tableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_tableMousePressed
@@ -374,7 +385,7 @@ public class SaisieComptable extends javax.swing.JFrame {
 
     private void sc_combo_compteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sc_combo_compteItemStateChanged
       
-        //comboBoxCC(sc_combo_sous_compte,sc_combo_compte.getSelectedItem().toString());
+        comboBoxCC(sc_combo_sous_compte,sc_combo_compte.getSelectedItem().toString());
        
         // MaVarialble mav=new MaVarialble();
         //mav.setCompte(sc_combo_compte.getSelectedItem().toString());
@@ -417,6 +428,11 @@ public class SaisieComptable extends javax.swing.JFrame {
         tableload(sc_table);
         cleanTableau();
     }//GEN-LAST:event_sc_ajouterActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
     
     public static void main(String args[]) {
        
@@ -428,6 +444,7 @@ public class SaisieComptable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

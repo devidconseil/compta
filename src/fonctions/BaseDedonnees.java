@@ -32,8 +32,8 @@ public class BaseDedonnees {
         try {
             Connection connection = getConnection();
             java.sql.Statement statement = connection.createStatement();
-            statement.executeUpdate(req);
-            statement.close();
+            statement.execute(req);
+            //statement.close();
         } catch (Exception e) {
             System.out.println(e);
         }
