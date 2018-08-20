@@ -121,7 +121,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(204, 204, 255));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Saisie comptable");
+        jLabel5.setText("...");
         jLabel5.setOpaque(true);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -145,7 +145,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(204, 204, 255));
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Saisie comptable");
+        jLabel8.setText("...");
         jLabel8.setOpaque(true);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -169,8 +169,13 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel10.setBackground(new java.awt.Color(204, 204, 255));
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel10.setText("Saisie comptable");
+        jLabel10.setText("Bilan comptable");
         jLabel10.setOpaque(true);
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -193,7 +198,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel11.setBackground(new java.awt.Color(204, 204, 255));
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel11.setText("Saisie comptable");
+        jLabel11.setText("...");
         jLabel11.setOpaque(true);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -276,6 +281,12 @@ public class Accueil extends javax.swing.JFrame {
          SaisieComptable sc=new SaisieComptable();
         sc.setVisible(true);
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        // TODO add your handling code here:
+        BilanComptable bilan=new BilanComptable();
+        bilan.setVisible(true);
+    }//GEN-LAST:event_jLabel10MouseClicked
 
     /**
      * @param args the command line arguments

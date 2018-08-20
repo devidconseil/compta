@@ -231,7 +231,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Saisie comptable"/>
+            <Property name="text" type="java.lang.String" value="..."/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -273,7 +273,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Saisie comptable"/>
+            <Property name="text" type="java.lang.String" value="..."/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -315,9 +315,12 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Saisie comptable"/>
+            <Property name="text" type="java.lang.String" value="Bilan comptable"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel10MouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -357,7 +360,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Saisie comptable"/>
+            <Property name="text" type="java.lang.String" value="..."/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
