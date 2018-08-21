@@ -306,7 +306,7 @@ public class SaisieComptable extends javax.swing.JFrame {
 
     private void sc_combo_classItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sc_combo_classItemStateChanged
         // TODO add your handling code here:
-        comboBoxC(sc_combo_compte);
+        comboBoxC(sc_combo_compte,sc_combo_class.getSelectedIndex());
     }//GEN-LAST:event_sc_combo_classItemStateChanged
 
     private void sc_supprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_supprimerMouseClicked
@@ -341,7 +341,7 @@ public class SaisieComptable extends javax.swing.JFrame {
     }//GEN-LAST:event_sc_modifierMouseClicked
 
     private void sc_combo_compteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sc_combo_compteItemStateChanged
-              // comboBoxCC(sc_combo_sous_compte);
+             comboBoxCC(sc_combo_sous_compte,sc_combo_compte.getSelectedItem().toString());
     }//GEN-LAST:event_sc_combo_compteItemStateChanged
 
     private void sc_combo_sous_compteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_combo_sous_compteMouseClicked
@@ -350,7 +350,7 @@ public class SaisieComptable extends javax.swing.JFrame {
 
     private void sc_combo_compteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sc_combo_compteFocusGained
         // TODO add your handling code here:
-        comboBoxCC(sc_combo_sous_compte);
+        
     }//GEN-LAST:event_sc_combo_compteFocusGained
 
     private void sc_combo_sous_compteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sc_combo_sous_compteFocusGained
@@ -442,10 +442,10 @@ public class SaisieComptable extends javax.swing.JFrame {
     
     }
     
-     private void comboBoxC(JComboBox jc)
+     private void comboBoxC(JComboBox jc, int strg1)
     {       
         jc.removeAllItems();
-        String req="SELECT LIBCOMPTE FROM COMPTE,CLASSE WHERE COMPTE.CODECLASSE=CLASSE.CODECLASSE AND COMPTE.CODECLASSE="+sc_combo_class.getSelectedIndex();
+        String req="SELECT LIBCOMPTE FROM COMPTE,CLASSE WHERE COMPTE.CODECLASSE=CLASSE.CODECLASSE AND COMPTE.CODECLASSE="+strg1;
         try {
             ResultSet resultSet=bd.getData(req);
             while(resultSet.next())
@@ -457,12 +457,12 @@ public class SaisieComptable extends javax.swing.JFrame {
         }
     
     }
-     private void comboBoxCC(JComboBox jc)
+     private void comboBoxCC(JComboBox jc, String strg2)
     {       
         jc.removeAllItems();
        
         String req="SELECT LIBELLES_COMPTE FROM SOUS_COMPTE,COMPTE WHERE SOUS_COMPTE.CODECOMPTE=COMPTE.CODECOMPTE "
-                + "AND SOUS_COMPTE.CODECOMPTE=(select CODECOMPTE from COMPTE where LIBCOMPTE='"+sc_combo_compte.getSelectedItem().toString()+"')";
+                + "AND SOUS_COMPTE.CODECOMPTE=(select CODECOMPTE from COMPTE where LIBCOMPTE='"+strg2+"')";
         try {
             ResultSet resultSet=bd.getData(req);
             while(resultSet.next())
