@@ -27,13 +27,12 @@ public class BaseDedonnees {
         connection.setAutoCommit(true);
         return connection;
     }
-
     public void insertData(String req) {
         try {
             Connection connection = getConnection();
             java.sql.Statement statement = connection.createStatement();
-            statement.executeUpdate(req);
-            statement.close();
+            statement.execute(req);
+            //statement.close();
         } catch (Exception e) {
             System.out.println(e);
         }
